@@ -13,25 +13,20 @@ import FAQ from "@/components/home/FAQ";
 import Blog from "@/components/home/Blog";
 import TechPartners from "@/components/home/TechPartners";
 import CTABanner from "@/components/home/CTABanner";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/common/SEOHead";
 
 const Index = () => {
-  const origin = typeof window !== "undefined" ? window.location.origin : "https://example.com";
-  const canonical = `${origin}/`;
-  const title = "Optimum Solution | Precision Medical Billing & RCM Services";
-  const description = "HIPAA-certified, performance-based medical billing with 97%+ clean claim rate. Full RCM, coding, credentialing, denials, analytics — serving 100+ practices across all 50 states.";
-  const keywords = "medical billing, revenue cycle management, RCM, medical coding, denial management, credentialing, healthcare billing services, HIPAA";
-  const image = `${origin}/1.png`;
+  const origin = typeof window !== "undefined" ? window.location.origin : "https://optimumsolution.com";
+  
   const organizationLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Optimum Solution",
     url: origin,
     logo: `${origin}/1.png`,
-    sameAs: [
-      // add your real profiles if available
-    ]
+    sameAs: []
   };
+  
   const websiteLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -43,6 +38,7 @@ const Index = () => {
       "query-input": "required name=search_term_string"
     }
   };
+  
   const breadcrumbsLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -51,35 +47,24 @@ const Index = () => {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: canonical
+        item: `${origin}/`
       }
     ]
   };
 
   return (
     <Layout>
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta name="keywords" content={keywords} />
-        <meta name="robots" content="index,follow,max-image-preview:large" />
-        <link rel="canonical" href={canonical} />
-        {/* Open Graph */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:url" content={canonical} />
-        <meta property="og:image" content={image} />
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={image} />
-        {/* JSON-LD */}
+      <SEOHead
+        title="Medical Billing & RCM Services | Optimum Solution"
+        description="HIPAA-certified medical billing with 97%+ clean claim rate. Full RCM, coding, credentialing, denials & analytics for 100+ practices across all 50 states."
+        keywords="medical billing, revenue cycle management, RCM, medical coding, denial management, credentialing, healthcare billing services, HIPAA"
+        canonical={`${origin}/`}
+        image="/1.png"
+      >
         <script type="application/ld+json">{JSON.stringify(organizationLd)}</script>
         <script type="application/ld+json">{JSON.stringify(websiteLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbsLd)}</script>
-      </Helmet>
+      </SEOHead>
 
       <Hero />
       <StatsBar />

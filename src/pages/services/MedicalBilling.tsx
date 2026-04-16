@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/common/SEOHead";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -85,16 +85,15 @@ const faqs = [
 const MedicalBilling = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  useEffect(() => {
-    document.title = "Medical Billing Services | Optimum Billing Solutions";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) {
-      meta.setAttribute("content", "Professional medical billing services that maximize reimbursement, reduce denials, and accelerate cash flow for healthcare practices of all sizes.");
-    }
-  }, []);
-
   return (
     <Layout>
+      <SEOHead
+        title="Medical Billing Services | Optimum Solution"
+        description="Expert medical billing with 98% clean claim rate. Maximize revenue, reduce denials & accelerate cash flow. Certified billers for 40+ specialties."
+        keywords="medical billing services, healthcare billing, claim management, revenue cycle, medical billing company, billing services"
+        canonical={typeof window !== "undefined" ? `${window.location.origin}/services/medical-billing/` : undefined}
+        image="/1.png"
+      />
       {/* Hero */}
       <section className="bg-gradient-hero py-24 text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">

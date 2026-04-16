@@ -1,4 +1,5 @@
 import Layout from "@/components/layout/Layout";
+import SEOHead from "@/components/common/SEOHead";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
@@ -56,6 +57,13 @@ const About = () => {
 
   return (
     <Layout>
+      <SEOHead
+        title="About Us | Medical Billing Experts Since 2018"
+        description="AAPC/AHIMA certified medical billing team. ISO 27001 & HIPAA compliant. Serving 100+ practices with 97.3% first-pass rate. Performance-based RCM partner."
+        keywords="medical billing company, RCM services, HIPAA compliant billing, certified medical billers, healthcare revenue cycle"
+        canonical={typeof window !== "undefined" ? `${window.location.origin}/about/` : undefined}
+        image="/1.png"
+      />
 
       {/* ── Hero ── */}
       <section className="relative bg-dark py-20 md:py-28 overflow-hidden">
@@ -113,7 +121,7 @@ const About = () => {
               <div className="rounded-2xl overflow-hidden shadow-xl border-4 border-white">
                 <img
                   src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=900"
-                  alt="Medical billing team"
+                  alt="Professional medical billing team working together in modern office"
                   className="w-full h-[380px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent" />
